@@ -5,9 +5,9 @@
 ### Setting your email address
 
 When you need to use different email addresses for different
-repositories, and therefore do not want to have a globally-
-defined default email address, use the following setting in
-the [user] section of your `$HOME/.gitconfig` file:
+repositories, and therefore do not want to have a
+globally-defined default email address, use the following setting
+in the `[user]` section of your `$HOME/.gitconfig` file:
 
     useConfigOnly = true
 
