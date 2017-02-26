@@ -1,183 +1,95 @@
-# Git Basics
+# Git Miscellaneous
 
-## Getting Started
+## Creating a remote repository on WebFaction
 
-### Setting your email address
+Go to `repos` directory on webfaction
 
-When you want to use different email addresses for different
-repositories, and therefore do not want a globally-defined
-default email address, use the following setting in the `[user]`
-section of your `$HOME/.gitconfig` file:
+    cd $HOME/webapps/git/repos
 
-    useConfigOnly = true
+Create bare repository
 
-Alternatively, you can issue the following command:
+    git init --bare <repo-name>.git
 
-    git config --global user.useConfigOnly true
+Enable HTTP push
 
-This will cause Git to abort commits in any local repos where
-you have not configured your email address.
+    cd <repo-name>.git
+    git config http.receivepack true
 
-Then, in your local repo, use the following command, which
-will update the `local .git/config` file:
+## Pushing local content to (empty) remote repository after init
 
-    git config user.email <address>
+Create local repo if necessary
 
-### Using `.gitignore` files
+    cd /path/to/my/source/files   # cd to directory containing source files
+    git init                      # create repo and .git subdirectory with requisite Git files
+    git add -A                    # stage all changes
+    git commit -m "message"       # commit all changes
 
-Set global `.gitignore` (in `$HOME`) to exclude `.DS_Store` files
+Add remote
 
-Create local `.gitignore`, especially for npm-based projects,
-to exclude `node_modules/` and `.jshintrc`
+    git remote add -m master origin http://git.relegant.com/<repo-name>.git
 
-### When you have multiple remotes, set `remote.pushDefault`
+`push` (first time)
 
-    git config remote.pushDefault <remote>
+    git push --set-upstream origin master
 
-You must issue the `git config remote.pushDefault <remote>`
-command from within the repository to which it applies. For
-example, when issued from within submodule `build`, it will
-update `../.git/modules/build/config`.
+or equivalent:
 
-### Using `git pull --rebase`
+    git push -u origin master
 
-If you rewrite history, e.g., update `user.email` for commits,
-when you pull in the updates, use `git pull --rebase`.
+## Cloning a remote repository
 
-Stack Overflow: "You should use `git pull --rebase` when your
-changes do not deserve a separate branch."
+`git clone` will create subdirectory named `<repo-name>`
 
-### Storing credentials for remote repositories
+    cd /path/to/parent/directory
+    git clone http://git.relegant.com/<repo-name>.git
+    cd <repo-name> # begin working...
 
-    git config --global credential.helper osxkeychain
+## Change history with updated user.email value:
 
-You can also use this type of setting in `~/.gitconfig`:
+See https://help.github.com/articles/changing-author-info/
+and `~/Scripts/git-author-rewrite.sh`
 
-    [credential "http://git.repo-host.com"]
-        username = <username>
+## Changing AUTHOR and EMAIL in git history
 
+For the last commit:
 
+    git commit --amend --author="Author Name <email@address.com>"
+    git push --force --tags origin 'refs/heads/*'
 
-## Branch Commands
+For the entire history of a branch:
 
-When you create a new branch, unless you use the `--orphan` switch
-you will import all of the files from `master` into the new branch.
+    git filter-branch --commit-filter '
+      if [ "$GIT_COMMITTER_NAME" = "<Old Name>" ];
+      then
+        GIT_COMMITTER_NAME="<New Name>";
+        GIT_AUTHOR_NAME="<New Name>";
+        GIT_COMMITTER_EMAIL="<New Email>";
+        GIT_AUTHOR_EMAIL="<New Email>";
+        git commit-tree "$@";
+      else
+        git commit-tree "$@";
+      fi' HEAD
 
-### List all branches
+    git push --force --tags origin 'refs/heads/*'
 
-    git branch [-v]  # or
+## Using Git with a remote SVN repository
 
-    git branch --list [-v]
+Clone remote SVN repository:
 
-### Create a new branch
+    git svn clone https://yoursvnserver/path
 
-    git branch <new-branch-name>
+Make some changes, then stage them (`add -A` stages all changes):
 
-### Switch to the new branch
+    git add -A
 
-    git checkout <new-branch-name>
+You can stage individual files too or use `git add -i` for interactive adding.
 
-### Create new branch and checkout in one step
+    git add <filename>    # repeat as necessary
 
-    git checkout -b <new-branch-name>
+Commit all staged changes
 
-### Delete a branch
+    git commit -m "commit message"
 
-    git branch -d <branch-name>
+Commit all local commits back to the SVN repository
 
-### Create a new orphan branch and checkout
-
-    git checkout --orphan <new-branch-name>
-
-Then use this command to clear the working directory:
-
-    git rm --cached -r .
-
-NOTE: Issue first commit before switching to another branch or
-your changes will (apparently) be lost.
-
-
-
-## Remote Commands
-
-### Determine whether there are upstream changes in remotes
-
-    git remote update
-
-This is equivalent to
-
-    git fetch --all
-
-### Fetch a named remote ref into the index
-
-Note: `<remote-name>` is optional if it is `origin`
-
-    git fetch <remote-name>
-
-### View the changes that will be merged after `git fetch`
-
-    git log --stat HEAD..origin
-
-### Determine the URL of remote origin
-
-    git remote show origin
-
-### Determine the URL of another named remote
-
-    git remote get-url <remote-name>
-
-### Push master branch to alternate remote
-
-    git push <alternate-remote> master
-
-
-
-## Miscellaneous Commands
-
-### Undo an add command: (e.g. `git add <filename>`)
-
-    git reset HEAD <filename>
-
-### See diffs for already-staged files
-
-    git diff --cached
-
-### See diffs between working copy and previous commit
-
-    git diff <commit-hash> <filename>
-
-### Replace working copy file with version currently in the index
-
-    git checkout -- <filename>
-
-### Replace a working copy file with version from previous commit
-
-    git checkout <commit-hash> <filename>
-
-### Undo the last commit
-
-To leave files as they are, but revert the index:
-
-    git reset HEAD~1
-
-To leave files and index as they are:
-
-    git reset --soft HEAD~1
-
-To revert files and index:
-
-    git reset --hard HEAD~1
-
-### Undo all commits back to a fixed point in the history
-
-    git reset --hard <commit-hash>
-
-    git push origin -f master:master
-
-
-
-## What certain commands actually do
-
-    git pull  =>  git fetch && git merge
-
-    git remote update  =>  git fetch --all
+    git svn dcommit
