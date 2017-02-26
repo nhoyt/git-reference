@@ -23,7 +23,7 @@ been added to the index:
 
 Finally, commit the changes:
 
-    git commit -m "Added subtree <subtree-path>"
+    git commit -m "Add subtree <subtree-path>"
 
 
 
@@ -32,7 +32,7 @@ Finally, commit the changes:
 Just use the normal Git commands:
 
     git clone <repo>
-or
+    or
     git pull
 
 
