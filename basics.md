@@ -100,7 +100,7 @@ your changes will (apparently) be lost.
 
 ## Remote Commands
 
-### Determine whether you need to pull changes from remote
+### Determine whether there are upstream changes in remotes
 
     git remote update
 
