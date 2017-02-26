@@ -89,7 +89,7 @@ you will import all of the files from `master` into the new branch.
 
     git checkout --orphan <new-branch-name>
 
-Then use this command to clear the working directory
+Then use this command to clear the working directory:
 
     git rm --cached -r .
 
@@ -110,7 +110,7 @@ This is equivalent to
 
 ### Fetch a named remote ref into the index
 
-Note: <remote-name> is optional if it is `origin`
+Note: `<remote-name>` is optional if it is `origin`
 
     git fetch <remote-name>
 
