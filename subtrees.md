@@ -4,7 +4,7 @@
 
 Define a named remote for the subtree's central repository:
 
-    git remote add <remote-name> <remote-URL>
+    git remote add <remote-name> <remote-url>
 
 Then fetch the remote ref into the index:
 
@@ -32,7 +32,7 @@ Finally, commit the changes:
 Just use the normal Git commands:
 
     git clone <repo>
-    or
+or
     git pull
 
 
