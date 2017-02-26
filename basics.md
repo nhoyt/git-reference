@@ -66,6 +66,7 @@ you will import all of the files from `master` into the new branch.
 ### List all branches
 
     git branch [-v]  # or
+
     git branch --list [-v]
 
 ### Create a new branch
