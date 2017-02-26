@@ -7,7 +7,7 @@
 When you need to use different email addresses for different
 repositories, and therefore do not want to have a globally-
 defined default email address, use the following setting in
-the [user] section of your ```$HOME/.gitconfig``` file:
+the [user] section of your `$HOME/.gitconfig` file:
 
     useConfigOnly = true
 
@@ -19,7 +19,7 @@ This will cause Git to abort commits in any local repos where
 you have not configured your email address.
 
 Then, in your local repo, use the following command, which
-will update the ```local .git/config``` file:
+will update the `local .git/config` file:
 
     git config user.email <address>
 

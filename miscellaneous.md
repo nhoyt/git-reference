@@ -2,7 +2,7 @@
 
 ## Creating a remote repository on WebFaction
 
-cd to `repos` directory on webfaction
+Go to `repos` directory on webfaction
 
     $ cd $HOME/webapps/git/repos
 
@@ -38,7 +38,7 @@ or equivalent:
 
 ## Cloning a remote repository
 
-`git clone` will create subdirectory named <repo-name>
+`git clone` will create subdirectory named `<repo-name>`
 
     $ cd /path/to/parent/directory
     $ git clone http://git.relegant.com/<repo-name>.git
@@ -47,7 +47,7 @@ or equivalent:
 ## Change history with updated user.email value:
 
 See https://help.github.com/articles/changing-author-info/
-and ~/Scripts/git-author-rewrite.sh
+and `~/Scripts/git-author-rewrite.sh`
 
 ## Changing AUTHOR and EMAIL in git history
 
