@@ -25,7 +25,7 @@ Important notes:
    to avoid subsequent problems with pushing changes to the submodule.
 
 2. Once you have done one of the above, if you plan to make any changes to
-   submodule files, be sure to cd into each submodule folder and checkout
+   submodule files, be sure to `cd` into each submodule folder and checkout
    the `master` branch, e.g.,
 
     cd <submodule-folder>
@@ -44,13 +44,14 @@ HEAD state.
     cd <submodule-name>
     git checkout master
 
-Then `add`, `commit` and `push` changes to remote.
+Then `add`, `commit` and `push` changes to submodule remote.
 
 Finally, `cd` out of the submodule subdirectory to the parent repo working copy:
 
     cd ..
 
 If you do a `git status` you will see that `<submodule-name>` has been modified.
+You can then `add`, `commit` and `push` those changes to the parent repo remote.
 
     git add <submodule-name>
     git commit -m "Updated ..."
@@ -66,14 +67,13 @@ To push commits in the main project and all submodules
 
     git push --recurse-submodules=on-demand
 
-## To pull the latest changes for both the submodule and the main repo
-simultaneously
+## To pull the latest changes for all submodules and the main repo simultaneously
 
 Use the following command from the parent repo:
 
     git pull origin <branch-name-of-parent-repo> --recurse-submodules
 
-Assuming the submodule is tracking the master branch, you can add the following
+Assuming each submodule is tracking the master branch, you can add the following
 line in your `.gitmodules` file, in the section for the corresponding submodule:
 
   branch = master
