@@ -37,7 +37,7 @@ to exclude `node_modules/` and `.jshintrc`
 You must issue the `git config remote.pushDefault <remote>`
 command from within the repository to which it applies. For
 example, when issued from within submodule `build`, it will
-update the file `../.git/modules/build/config`.
+update `../.git/modules/build/config`.
 
 ### Using `git pull --rebase`
 
