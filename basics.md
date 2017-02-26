@@ -59,16 +59,16 @@ For the last commit:
 For the entire history of a branch:
 
     git filter-branch --commit-filter '
-      if [ "$GIT_COMMITTER_NAME" = "<Old Name>" ];
-      then
+    if [ "$GIT_COMMITTER_NAME" = "<Old Name>" ];
+    then
         GIT_COMMITTER_NAME="<New Name>";
         GIT_AUTHOR_NAME="<New Name>";
         GIT_COMMITTER_EMAIL="<New Email>";
         GIT_AUTHOR_EMAIL="<New Email>";
         git commit-tree "$@";
-      else
+    else
         git commit-tree "$@";
-      fi' HEAD
+    fi' HEAD
 
     git push --force --tags origin 'refs/heads/*'
 
