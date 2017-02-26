@@ -19,7 +19,7 @@ The `git status` command will show that the new files have already
 been added to the index:
 
     Changes to be committed:
-    (use `git reset HEAD <file>...` to unstage)
+    (use "git reset HEAD <file>..." to unstage)
 
 Finally, commit the changes:
 
