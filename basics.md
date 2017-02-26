@@ -60,8 +60,8 @@ You can also use this type of setting in `~/.gitconfig`:
 
 ## Branch Commands
 
-When you create a new branch, unless you use the --orphan switch
-you will import all of the files from master into the new branch.
+When you create a new branch, unless you use the `--orphan` switch
+you will import all of the files from `master` into the new branch.
 
 ### List all branches
 
@@ -76,7 +76,7 @@ you will import all of the files from master into the new branch.
 
     $ git checkout <new-branch-name>
 
-### Create new branch and checkout in one command
+### Create new branch and checkout in one step
 
     $ git checkout -b <new-branch-name>
 
@@ -88,7 +88,7 @@ you will import all of the files from master into the new branch.
 
     $ git checkout --orphan <new-branch-name>
 
-### Then use this command to clear the working directory
+Then use this command to clear the working directory
 
     $ git rm --cached -r .
 
