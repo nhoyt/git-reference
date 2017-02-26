@@ -1,4 +1,4 @@
-# Git Basics
+# Git Commands and Tips
 
 ## Getting Started
 

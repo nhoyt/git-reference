@@ -1,4 +1,4 @@
-# Git Miscellaneous
+# Git Basics
 
 ## Creating a remote repository on WebFaction
 
