@@ -63,11 +63,16 @@ You can also use this type of setting in `~/.gitconfig`:
 When you create a new branch, unless you use the `--orphan` switch
 you will import all of the files from `master` into the new branch.
 
-### List all branches
+### List all local branches
 
-    git branch [-v]  # or
+    git branch  =>  git branch --list
 
-    git branch --list [-v]
+You can use the -v switch to get information on the commit that HEAD
+points to for each branch
+
+### List all branches, both local and remote
+
+    git branch -a
 
 ### Create a new branch
 
@@ -85,7 +90,7 @@ you will import all of the files from `master` into the new branch.
 
     git branch -d <branch-name>
 
-### Delete branch on the remote
+### Delete branch on the origin remote
 
     git push origin --delete <branch-name>
 
