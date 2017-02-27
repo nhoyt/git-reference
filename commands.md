@@ -184,4 +184,8 @@ To revert files and index:
 
     git pull  =>  git fetch && git merge
 
+    git pull --rebase => git fetch && git rebase
+
     git remote update  =>  git fetch --all
+
+    git remote prune   =>  git fetch --all --prune
