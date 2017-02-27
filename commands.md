@@ -85,6 +85,10 @@ you will import all of the files from `master` into the new branch.
 
     git branch -d <branch-name>
 
+### Delete branch on the remote
+
+    git push origin --delete <branch-name>
+
 ### Create a new orphan branch and checkout
 
     git checkout --orphan <new-branch-name>
