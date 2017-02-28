@@ -1,7 +1,67 @@
 # Git Commands and Tips
 
 ----------------------------------------------------------------
-## Branch Commands
+## Remotes
+
+### List all remotes and their associated URLs
+
+    git remote -v
+
+### Fetch remote refs into the index
+
+Note: The default for `[remote-name]` is `origin`
+
+    git fetch [remote-name]
+
+### Fetch refs for all remotes
+
+    git fetch --all
+
+### View the changes that will be merged after `git fetch`
+
+    git log --stat HEAD..origin
+
+### Determine the URL of remote origin
+
+    git remote show origin
+
+### Determine the URL of named remote
+
+    git remote get-url <remote-name>
+
+### Push master branch to named remote
+
+    git push <remote-name> master
+
+----------------------------------------------------------------
+## Undo/Reset
+
+### Undo an add command: (e.g. `git add <filename>`)
+
+    git reset HEAD <filename>
+
+### Undo the last commit
+
+To leave files as they are, but revert the index:
+
+    git reset HEAD~1
+
+To leave files and index as they are:
+
+    git reset --soft HEAD~1
+
+To revert files and index:
+
+    git reset --hard HEAD~1
+
+### Undo all commits back to a fixed point in the history
+
+    git reset --hard <commit-hash>
+
+    git push origin -f master:master
+
+----------------------------------------------------------------
+## Branching & Merging
 
 When you create a new branch, unless you use the `--orphan` switch,
 you will import all of the files from your current branch into the
@@ -17,7 +77,13 @@ new branch.
 
 ### Create new branch and checkout in one step
 
-    git checkout -b <new-branch-name>
+    git checkout -b <branch-name>
+
+### Merge commits in <branch-name> into `master`
+
+    git checkout master
+
+    git merge <branch-name>
 
 ### Delete a branch
 
@@ -56,71 +122,7 @@ points to for each branch
     git branch -a
 
 ----------------------------------------------------------------
-## Remote Commands
-
-### Determine whether there are upstream changes in remotes
-
-    git fetch --all
-
-### Fetch remote refs into the index
-
-Note: The default for `[remote-name]` is `origin`
-
-    git fetch [remote-name]
-
-### View the changes that will be merged after `git fetch`
-
-    git log --stat HEAD..origin
-
-### Determine the URL of remote origin
-
-    git remote show origin
-
-### Determine the URL of named remote
-
-    git remote get-url <remote-name>
-
-### Push master branch to named remote
-
-    git push <remote-name> master
-
-----------------------------------------------------------------
-## Undo/Reset Commands
-
-### Undo an add command: (e.g. `git add <filename>`)
-
-    git reset HEAD <filename>
-
-### Undo the last commit
-
-To leave files as they are, but revert the index:
-
-    git reset HEAD~1
-
-To leave files and index as they are:
-
-    git reset --soft HEAD~1
-
-To revert files and index:
-
-    git reset --hard HEAD~1
-
-### Undo all commits back to a fixed point in the history
-
-    git reset --hard <commit-hash>
-
-    git push origin -f master:master
-
-----------------------------------------------------------------
-## Miscellaneous Commands
-
-### See diffs for already-staged files
-
-    git diff --cached
-
-### See diffs between working copy and previous commit
-
-    git diff <commit-hash> <filename>
+## Miscellaneous
 
 ### Replace working copy file with version currently in the index
 
@@ -129,6 +131,14 @@ To revert files and index:
 ### Replace a working copy file with version from previous commit
 
     git checkout <commit-hash> <filename>
+
+### See diffs for already-staged files
+
+    git diff --cached
+
+### See diffs between working copy and previous commit
+
+    git diff <commit-hash> <filename>
 
 ### Using `git pull --rebase`
 
@@ -139,7 +149,7 @@ Stack Overflow: "You should use `git pull --rebase` when your
 changes do not deserve a separate branch."
 
 ----------------------------------------------------------------
-## Tag Commands
+## Tagging
 
 ### List all tags
 

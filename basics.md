@@ -85,7 +85,7 @@ Create local repo if necessary
 
 Add remote
 
-    git remote add -m master origin http://git.relegant.com/<repo-name>.git
+    git remote add -m master origin <remote-url>
 
 `push` (first time)
 
