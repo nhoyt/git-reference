@@ -31,8 +31,7 @@ Finally, commit the changes:
 
 Just use the normal Git commands:
 
-    git clone <repo>
-    or
+    git clone <repo> # or
     git pull
 
 ----------------------------------------------------------------
@@ -42,7 +41,8 @@ Update the local cache from the subtree’s remote:
 
     git fetch <remote-name>
 
-Then do a subtree merge, using a squash commit to avoid merging histories:
+Then do a subtree merge, using a squash commit to avoid merging
+histories:
 
     git merge -s subtree --squash <remote-name>/master
 

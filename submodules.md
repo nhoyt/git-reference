@@ -22,39 +22,42 @@ are equivalent to this single command:
 
 Important notes:
 
-1. Be sure to use one of the above, either `git clone` followed by `git
-   submodule init` and `git submodule update`, or `git clone --recursive`,
-   to avoid subsequent problems with pushing changes to the submodule.
+1. Be sure to use one of the above, either `git clone` followed
+   by `git submodule init` and `git submodule update`, or
+   `git clone --recursive`, to avoid subsequent problems with
+   pushing changes to the submodule.
 
-2. Once you have done one of the above, if you plan to make any changes to
-   submodule files, be sure to `cd` into each submodule folder and checkout
-   the `master` branch, e.g.,
+2. Once you have done one of the above, if you plan to make any
+   changes to submodule files, be sure to `cd` into each submodule
+   folder and checkout the `master` branch, e.g.,
 
     cd <submodule-folder>
     git checkout master
 
-Otherwise you will remain in a detached HEAD state and will not be able to
-commit or push changes.
+Otherwise you will remain in a detached `HEAD` state and will
+not be able to commit or push changes.
 
 ----------------------------------------------------------------
 ## To make changes in your submodule
 
 First check out a branch (usually `master`).
 
-Important note: If you skip this step, the submodule will remain in a detached
-HEAD state.
+Important note: If you skip this step, the submodule will remain
+in a detached `HEAD` state.
 
     cd <submodule-name>
     git checkout master
 
 Then `add`, `commit` and `push` changes to submodule remote.
 
-Finally, `cd` out of the submodule subdirectory to the parent repo working copy:
+Finally, `cd` out of the submodule subdirectory to the parent
+repo working copy:
 
     cd ..
 
-If you do a `git status` you will see that `<submodule-name>` has been modified.
-You can then `add`, `commit` and `push` those changes to the parent repo remote.
+If you do a `git status` you will see that `<submodule-name>` has
+been modified. You can then `add`, `commit` and `push` those
+changes to the parent repo remote.
 
     git add <submodule-name>
     git commit -m "Updated ..."
@@ -78,8 +81,9 @@ Use the following command from the parent repo:
 
     git pull origin <branch-name-of-parent-repo> --recurse-submodules
 
-Assuming each submodule is tracking the master branch, you can add the following
-line in your `.gitmodules` file, in the section for the corresponding submodule:
+Assuming each submodule is tracking the master branch, you can add
+the following line in your `.gitmodules` file, in the section for
+the corresponding submodule:
 
   branch = master
 
