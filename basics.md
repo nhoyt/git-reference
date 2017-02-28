@@ -3,6 +3,14 @@
 ----------------------------------------------------------------
 ## Getting Started
 
+### Cloning a remote repository
+
+Note: `git clone` will create a folder named `<repo-name>`
+
+    cd /path/to/parent/directory
+    git clone <remote-url>/<repo-name>.git
+    cd <repo-name> # begin working...
+
 ### Setting your email address
 
 When you want to use different email addresses for different
@@ -86,15 +94,6 @@ Add remote
 or equivalent:
 
     git push -u origin master
-
-----------------------------------------------------------------
-## Cloning a remote repository
-
-`git clone` will create subdirectory named `<repo-name>`
-
-    cd /path/to/parent/directory
-    git clone http://git.relegant.com/<repo-name>.git
-    cd <repo-name> # begin working...
 
 ----------------------------------------------------------------
 ## Change history with updated user.email value:
