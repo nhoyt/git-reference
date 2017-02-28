@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SRCDIR=/Users/nhoyt/Documents/Notes/Reference
+SRCDIR=$HOME/Documents/Notes/Reference
 
 cp -fp $SRCDIR/Git-Basics.txt     ./basics.md
 cp -fp $SRCDIR/Git-Commands.txt   ./commands.md
