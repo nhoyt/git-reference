@@ -1,85 +1,19 @@
 # Git Commands and Tips
 
-## Getting Started
-
-### Setting your email address
-
-When you want to use different email addresses for different
-repositories, and therefore do not want a globally-defined
-default email address, use the following setting in the `[user]`
-section of your `$HOME/.gitconfig` file:
-
-    useConfigOnly = true
-
-Alternatively, you can issue the following command:
-
-    git config --global user.useConfigOnly true
-
-This will cause Git to abort commits in any local repos where
-you have not configured your email address.
-
-Then, in your local repo, use the following command, which
-will update the `local .git/config` file:
-
-    git config user.email <address>
-
-### Using `.gitignore` files
-
-Set global `.gitignore` (in `$HOME`) to exclude `.DS_Store` files
-
-Create local `.gitignore`, especially for npm-based projects,
-to exclude `node_modules/` and `.jshintrc`
-
-### When you have multiple remotes, set `remote.pushDefault`
-
-    git config remote.pushDefault <remote>
-
-You must issue the `git config remote.pushDefault <remote>`
-command from within the repository to which it applies. For
-example, when issued from within submodule `build`, it will
-update `../.git/modules/build/config`.
-
-### Using `git pull --rebase`
-
-If you rewrite history, e.g., update `user.email` for commits,
-when you pull in the updates, use `git pull --rebase`.
-
-Stack Overflow: "You should use `git pull --rebase` when your
-changes do not deserve a separate branch."
-
-### Storing credentials for remote repositories
-
-    git config --global credential.helper osxkeychain
-
-You can also use this type of setting in `~/.gitconfig`:
-
-    [credential "http://git.repo-host.com"]
-        username = <username>
-
 ----------------------------------------------------------------
 ## Branch Commands
 
-When you create a new branch, unless you use the `--orphan` switch
-you will import all of the files from `master` into the new branch.
+When you create a new branch, unless you use the `--orphan` switch,
+you will import all of the files from your current branch into the
+new branch.
 
-### List all local branches
+### Create new branch
 
-    git branch  =>  git branch --list
+    git branch <branch-name>
 
-You can use the -v switch to get information on the commit that HEAD
-points to for each branch
+### Checkout branch
 
-### List all branches, both local and remote
-
-    git branch -a
-
-### Create a new branch
-
-    git branch <new-branch-name>
-
-### Switch to the new branch
-
-    git checkout <new-branch-name>
+    git checkout <branch-name>
 
 ### Create new branch and checkout in one step
 
@@ -110,6 +44,17 @@ Then use this command to clear the working directory:
 NOTE: Issue first commit before switching to another branch or
 your changes will (apparently) be lost.
 
+### List local branches
+
+    git branch  =>  git branch --list
+
+You can use the -v switch to get information on the commit that HEAD
+points to for each branch
+
+### List all branches, both local and remote
+
+    git branch -a
+
 ----------------------------------------------------------------
 ## Remote Commands
 
@@ -138,33 +83,6 @@ Note: The default for `[remote-name]` is `origin`
 ### Push master branch to named remote
 
     git push <remote-name> master
-
-----------------------------------------------------------------
-## Tag Commands
-
-### List all tags
-
-    git tag
-
-### List all tags that match a pattern
-
-    git tag -l <reg-exp>
-
-### Create annotated tag for the latest commit
-
-    git tag -a <tag-name> -m "<comment"
-
-### Create annotated tag for a previous commit
-
-    git tag -a <tag-name> <commit-hash>
-
-### Push tag to remote repository
-
-    git push origin <tag-name>
-
-### Push all tags to remote
-
-    git push origin --tags
 
 ----------------------------------------------------------------
 ## Miscellaneous Commands
@@ -208,6 +126,91 @@ To revert files and index:
     git reset --hard <commit-hash>
 
     git push origin -f master:master
+
+----------------------------------------------------------------
+## Tag Commands
+
+### List all tags
+
+    git tag
+
+### List all tags that match a pattern
+
+    git tag -l <reg-exp>
+
+### Create annotated tag for the latest commit
+
+    git tag -a <tag-name> -m "<comment"
+
+### Create annotated tag for a previous commit
+
+    git tag -a <tag-name> <commit-hash>
+
+### Push tag to remote repository
+
+    git push origin <tag-name>
+
+### Push all tags to remote
+
+    git push origin --tags
+
+----------------------------------------------------------------
+## Getting Started
+
+### Setting your email address
+
+When you want to use different email addresses for different
+repositories, and therefore do not want a globally-defined
+default email address, use the following setting in the `[user]`
+section of your `$HOME/.gitconfig` file:
+
+    useConfigOnly = true
+
+Alternatively, you can issue the following command:
+
+    git config --global user.useConfigOnly true
+
+This will cause Git to abort commits in any local repos where
+you have not configured your email address.
+
+Then, in your local repo, use the following command, which
+will update the `local .git/config` file:
+
+    git config user.email <address>
+
+### Using `.gitignore` files
+
+Set global `.gitignore` (in `$HOME`) to exclude `.DS_Store` files
+
+Create local `.gitignore`, especially for npm-based projects,
+to exclude `node_modules/` and `.jshintrc`
+
+### Storing credentials for remote repositories
+
+    git config --global credential.helper osxkeychain
+
+You can also use this type of setting in `~/.gitconfig`:
+
+    [credential "http://git.repo-host.com"]
+        username = <username>
+
+### When you have multiple remotes, set `remote.pushDefault`
+
+    git config remote.pushDefault <remote>
+
+You must issue the `git config remote.pushDefault <remote>`
+command from within the repository to which it applies. For
+example, when issued from within submodule `build`, it will
+update `../.git/modules/build/config`.
+
+----------------------------------------------------------------
+## Using `git pull --rebase`
+
+If you rewrite history, e.g., update `user.email` for commits,
+when you pull in the updates, use `git pull --rebase`.
+
+Stack Overflow: "You should use `git pull --rebase` when your
+changes do not deserve a separate branch."
 
 ----------------------------------------------------------------
 ## What certain commands actually do
