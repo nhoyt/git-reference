@@ -36,7 +36,10 @@ Note: The default for `[remote-name]` is `origin`
 ----------------------------------------------------------------
 ## Undo/Reset
 
-### Undo an `add` command:
+### Unstage file that has been staged for commit
+
+After adding `<filename>` to the index with 'git add' command,
+you can remove it from the index with:
 
     git reset HEAD <filename>
 
@@ -47,6 +50,8 @@ Note: Current version of `<filename>` will be overwritten!
     git checkout -- <filename>
 
 ### Replace a working copy file with version from previous commit
+
+Note: Current version of `<filename>` will be overwritten!
 
     git checkout <commit-hash> <filename>
 
