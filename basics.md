@@ -5,10 +5,11 @@
 
 ### Cloning a remote repository
 
-Note: `git clone` will create a folder named `<repo-name>`
+Note: For a repository named `<repo-name>.git`, `git clone` will
+create a folder named `<repo-name>`:
 
-    cd /path/to/parent/directory
-    git clone <remote-url>/<repo-name>.git
+    cd /path/to/parent/directory/for/working-copy
+    git clone https://example.com/<repo-name>.git
     cd <repo-name> # begin working...
 
 ### Setting your email address
@@ -60,15 +61,15 @@ update `../.git/modules/build/config`.
 ----------------------------------------------------------------
 ## Creating a remote repository on WebFaction
 
-Go to `repos` directory on webfaction
+Go to default `repos` directory on webfaction:
 
     cd $HOME/webapps/git/repos
 
-Create bare repository
+Create bare repository:
 
     git init --bare <repo-name>.git
 
-Enable HTTP push
+Enable HTTP push:
 
     cd <repo-name>.git
     git config http.receivepack true
@@ -76,18 +77,18 @@ Enable HTTP push
 ----------------------------------------------------------------
 ## Pushing local content to (empty) remote repository after init
 
-Create local repo if necessary
+Create local repo if necessary:
 
     cd /path/to/my/source/files   # cd to directory containing source files
     git init                      # create repo and .git subdirectory with requisite Git files
     git add -A                    # stage all changes
     git commit -m "message"       # commit all changes
 
-Add remote
+Add remote:
 
     git remote add -m master origin <remote-url>
 
-`push` (first time)
+`push` (first time):
 
     git push --set-upstream origin master
 
@@ -96,7 +97,7 @@ or equivalent:
     git push -u origin master
 
 ----------------------------------------------------------------
-## Change history with updated user.email value:
+## Change history with updated user.email value
 
 See https://help.github.com/articles/changing-author-info/
 and `~/Scripts/git-author-rewrite.sh`
@@ -132,18 +133,20 @@ Clone remote SVN repository:
 
     git svn clone https://yoursvnserver/path
 
-Make some changes, then stage them (`add -A` stages all changes):
+Make some changes, then stage them (`add -A` or `add --all`
+stages all changes):
 
     git add -A
 
-You can stage individual files too or use `git add -i` for interactive adding.
+Stage individual files by specifying `<filename>`, or use
+`git add -i` to interactively add untracked files.
 
     git add <filename>    # repeat as necessary
 
-Commit all staged changes
+Commit all staged changes:
 
     git commit -m "commit message"
 
-Commit all local commits back to the SVN repository
+Commit all local commits back to the SVN repository:
 
     git svn dcommit
