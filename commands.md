@@ -17,10 +17,6 @@ Note: The default for `[remote-name]` is `origin`
 
     git fetch --all
 
-### View the changes that will be merged after `git fetch`
-
-    git log --stat HEAD..origin
-
 ### Determine the URL of remote origin
 
     git remote show origin
@@ -76,7 +72,7 @@ To revert files and index:
     git push origin -f master:master
 
 ----------------------------------------------------------------
-## Branching & Merging
+## Branching
 
 When you create a new branch, unless you use the `--orphan` switch,
 you will import all of the files from your current branch into the
@@ -93,12 +89,6 @@ new branch.
 ### Create new branch and checkout in one step
 
     git checkout -b <branch-name>
-
-### Merge commits in <branch-name> into `master`
-
-    git checkout master
-
-    git merge <branch-name>
 
 ### Delete a branch
 
@@ -135,6 +125,36 @@ points to for each branch
 ### List all branches, both local and remote
 
     git branch -a
+
+----------------------------------------------------------------
+## Merging
+
+### Merge commits from one branch into another branch
+
+To merge commits in `<branch-name>` into the `master` branch:
+
+    git checkout master
+
+    git merge <branch-name>
+
+### See diffs between one branch and another branch
+
+For example, after using `git fetch origin`, to see the diffs
+between your local `master` branch and `origin/master', use:
+
+    git diff master origin/master
+
+As another example, before merging `<branch-name>` into the
+`master` branch, to see the diffs that will be merged, use:
+
+    git diff `<branch-name>` master
+
+### View list of files that will be merged
+
+For example, after using `git fetch`, to fetch refs from
+origin remote, use:
+
+    git log --stat HEAD..origin
 
 ----------------------------------------------------------------
 ## Miscellaneous
