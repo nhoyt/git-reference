@@ -56,8 +56,7 @@ You can also use this type of setting in `~/.gitconfig`:
     [credential "http://git.repo-host.com"]
         username = <username>
 
-
-
+----------------------------------------------------------------
 ## Branch Commands
 
 When you create a new branch, unless you use the `--orphan` switch
@@ -105,8 +104,7 @@ Then use this command to clear the working directory:
 NOTE: Issue first commit before switching to another branch or
 your changes will (apparently) be lost.
 
-
-
+----------------------------------------------------------------
 ## Remote Commands
 
 ### Determine whether there are upstream changes in remotes
@@ -139,8 +137,34 @@ Note: `<remote-name>` is optional if it is `origin`
 
     git push <alternate-remote> master
 
+----------------------------------------------------------------
+## Tag Commands
 
+### List all tags
 
+    git tag
+
+### List all tags that match a pattern
+
+    git tag -l <reg-exp>
+
+### Create annotated tag for the latest commit
+
+    git tag -a <tag-name> -m "<comment"
+
+### Create annotated tag for a previous commit
+
+    git tag -a <tag-name> <commit-hash>
+
+### Push tag to remote repository
+
+    git push origin <tag-name>
+
+### Push all tags to remote
+
+    git push origin --tags
+
+----------------------------------------------------------------
 ## Miscellaneous Commands
 
 ### Undo an add command: (e.g. `git add <filename>`)
@@ -183,8 +207,7 @@ To revert files and index:
 
     git push origin -f master:master
 
-
-
+----------------------------------------------------------------
 ## What certain commands actually do
 
     git pull  =>  git fetch && git merge
