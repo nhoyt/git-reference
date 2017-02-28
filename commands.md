@@ -93,9 +93,11 @@ points to for each branch
 
     git push origin --delete <branch-name>
 
-### Delete local branches that are no longer on remotes
+### Delete local branches that are no longer on the remote
 
-    git fetch --all --prune
+Note: The default for `[remote-name]` is `origin`
+
+    git fetch [remote-name] --prune
 
 ### Create a new orphan branch and checkout
 
