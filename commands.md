@@ -147,7 +147,7 @@ between your local `master` branch and `origin/master', use:
 As another example, before merging `<branch-name>` into the
 `master` branch, to see the diffs that will be merged, use:
 
-    git diff `<branch-name>` master
+    git diff <branch-name> master
 
 ### View list of files that will be merged
 
