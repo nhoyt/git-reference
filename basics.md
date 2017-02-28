@@ -1,5 +1,6 @@
 # Git Basics
 
+----------------------------------------------------------------
 ## Creating a remote repository on WebFaction
 
 Go to `repos` directory on webfaction
@@ -15,6 +16,7 @@ Enable HTTP push
     cd <repo-name>.git
     git config http.receivepack true
 
+----------------------------------------------------------------
 ## Pushing local content to (empty) remote repository after init
 
 Create local repo if necessary
@@ -36,6 +38,7 @@ or equivalent:
 
     git push -u origin master
 
+----------------------------------------------------------------
 ## Cloning a remote repository
 
 `git clone` will create subdirectory named `<repo-name>`
@@ -44,11 +47,13 @@ or equivalent:
     git clone http://git.relegant.com/<repo-name>.git
     cd <repo-name> # begin working...
 
+----------------------------------------------------------------
 ## Change history with updated user.email value:
 
 See https://help.github.com/articles/changing-author-info/
 and `~/Scripts/git-author-rewrite.sh`
 
+----------------------------------------------------------------
 ## Changing AUTHOR and EMAIL in git history
 
 For the last commit:
@@ -72,6 +77,7 @@ For the entire history of a branch:
 
     git push --force --tags origin 'refs/heads/*'
 
+----------------------------------------------------------------
 ## Using Git with a remote SVN repository
 
 Clone remote SVN repository:

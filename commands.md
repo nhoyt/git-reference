@@ -89,9 +89,13 @@ points to for each branch
 
     git branch -d <branch-name>
 
-### Delete branch on the origin remote
+### Delete branch on origin remote
 
     git push origin --delete <branch-name>
+
+### Delete local branches that are no longer on remotes
+
+    git fetch --all --prune
 
 ### Create a new orphan branch and checkout
 
@@ -109,17 +113,13 @@ your changes will (apparently) be lost.
 
 ### Determine whether there are upstream changes in remotes
 
-    git remote update
-
-This is equivalent to
-
     git fetch --all
 
-### Fetch a named remote ref into the index
+### Fetch remote refs into the index
 
-Note: `<remote-name>` is optional if it is `origin`
+Note: The default for `[remote-name]` is `origin`
 
-    git fetch <remote-name>
+    git fetch [remote-name]
 
 ### View the changes that will be merged after `git fetch`
 
@@ -129,13 +129,13 @@ Note: `<remote-name>` is optional if it is `origin`
 
     git remote show origin
 
-### Determine the URL of another named remote
+### Determine the URL of named remote
 
     git remote get-url <remote-name>
 
-### Push master branch to alternate remote
+### Push master branch to named remote
 
-    git push <alternate-remote> master
+    git push <remote-name> master
 
 ----------------------------------------------------------------
 ## Tag Commands

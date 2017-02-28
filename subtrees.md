@@ -1,5 +1,6 @@
 # Git Subtrees
 
+----------------------------------------------------------------
 ## Adding a subtree
 
 Define a named remote for the subtree's central repository:
@@ -25,8 +26,7 @@ Finally, commit the changes:
 
     git commit -m "Add subtree <subtree-path>"
 
-
-
+----------------------------------------------------------------
 ## Cloning/updating a repository with subtree(s)
 
 Just use the normal Git commands:
@@ -35,8 +35,7 @@ Just use the normal Git commands:
     or
     git pull
 
-
-
+----------------------------------------------------------------
 ## Getting an update from the subtree's remote
 
 Update the local cache from the subtree’s remote:
@@ -53,6 +52,7 @@ Commit the updates:
 
     git commit -m "Updated <remote-name>"
 
+----------------------------------------------------------------
 ## Backporting to the subtree's remote
 
 From the main development branch, view recent commits:

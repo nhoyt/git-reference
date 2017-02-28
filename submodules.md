@@ -1,11 +1,13 @@
 # Git Submodules
 
+----------------------------------------------------------------
 ## Adding a submodule
 
     git submodule add <url> [folder]
     git commit -am "Added submodule [folder]"
     git diff --cached --submodule
 
+----------------------------------------------------------------
 ## Cloning a repository that has submodules
 
 These three commands:
@@ -34,6 +36,7 @@ Important notes:
 Otherwise you will remain in a detached HEAD state and will not be able to
 commit or push changes.
 
+----------------------------------------------------------------
 ## To make changes in your submodule
 
 First check out a branch (usually `master`).
@@ -57,6 +60,7 @@ You can then `add`, `commit` and `push` those changes to the parent repo remote.
     git commit -m "Updated ..."
     git push
 
+----------------------------------------------------------------
 ## When ready to push commits in the main project
 
 To check whether submodule commits have been pushed, use:
@@ -67,6 +71,7 @@ To push commits in the main project and all submodules
 
     git push --recurse-submodules=on-demand
 
+----------------------------------------------------------------
 ## To pull the latest changes for all submodules and the main repo simultaneously
 
 Use the following command from the parent repo:
@@ -82,6 +87,7 @@ and then use the shorter command (from the parent repo):
 
     git pull --recurse-submodules
 
+----------------------------------------------------------------
 ## Updating submodules in your working copy
 
 These two commands:
@@ -95,6 +101,7 @@ are equivalent to:
 
 The above command(s) will pull in any upstream changes.
 
+----------------------------------------------------------------
 ## To remove a submodule
 
 Use the following three commands:
@@ -103,6 +110,7 @@ Use the following three commands:
     git rm <submodule-name>
     rm -rf .git/modules/<submodule-name>
 
+----------------------------------------------------------------
 ## What certain commands actually do:
 
     git submodule update --remote <submodule-name>  =>
