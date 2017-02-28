@@ -36,9 +36,19 @@ Note: The default for `[remote-name]` is `origin`
 ----------------------------------------------------------------
 ## Undo/Reset
 
-### Undo an add command: (e.g. `git add <filename>`)
+### Undo an `add` command:
 
     git reset HEAD <filename>
+
+### Replace working copy file with version currently in the index
+
+Note: Current version of `<filename>` will be overwritten!
+
+    git checkout -- <filename>
+
+### Replace a working copy file with version from previous commit
+
+    git checkout <commit-hash> <filename>
 
 ### Undo the last commit
 
@@ -123,14 +133,6 @@ points to for each branch
 
 ----------------------------------------------------------------
 ## Miscellaneous
-
-### Replace working copy file with version currently in the index
-
-    git checkout -- <filename>
-
-### Replace a working copy file with version from previous commit
-
-    git checkout <commit-hash> <filename>
 
 ### See diffs for already-staged files
 
