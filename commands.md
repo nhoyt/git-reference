@@ -85,27 +85,11 @@ Note: The default for `[remote-name]` is `origin`
     git push <remote-name> master
 
 ----------------------------------------------------------------
-## Miscellaneous Commands
+## Undo/Reset Commands
 
 ### Undo an add command: (e.g. `git add <filename>`)
 
     git reset HEAD <filename>
-
-### See diffs for already-staged files
-
-    git diff --cached
-
-### See diffs between working copy and previous commit
-
-    git diff <commit-hash> <filename>
-
-### Replace working copy file with version currently in the index
-
-    git checkout -- <filename>
-
-### Replace a working copy file with version from previous commit
-
-    git checkout <commit-hash> <filename>
 
 ### Undo the last commit
 
@@ -126,6 +110,33 @@ To revert files and index:
     git reset --hard <commit-hash>
 
     git push origin -f master:master
+
+----------------------------------------------------------------
+## Miscellaneous Commands
+
+### See diffs for already-staged files
+
+    git diff --cached
+
+### See diffs between working copy and previous commit
+
+    git diff <commit-hash> <filename>
+
+### Replace working copy file with version currently in the index
+
+    git checkout -- <filename>
+
+### Replace a working copy file with version from previous commit
+
+    git checkout <commit-hash> <filename>
+
+### Using `git pull --rebase`
+
+If you rewrite history, e.g., update `user.email` for commits,
+when you pull in the updates, use `git pull --rebase`.
+
+Stack Overflow: "You should use `git pull --rebase` when your
+changes do not deserve a separate branch."
 
 ----------------------------------------------------------------
 ## Tag Commands
@@ -153,64 +164,6 @@ To revert files and index:
 ### Push all tags to remote
 
     git push origin --tags
-
-----------------------------------------------------------------
-## Getting Started
-
-### Setting your email address
-
-When you want to use different email addresses for different
-repositories, and therefore do not want a globally-defined
-default email address, use the following setting in the `[user]`
-section of your `$HOME/.gitconfig` file:
-
-    useConfigOnly = true
-
-Alternatively, you can issue the following command:
-
-    git config --global user.useConfigOnly true
-
-This will cause Git to abort commits in any local repos where
-you have not configured your email address.
-
-Then, in your local repo, use the following command, which
-will update the `local .git/config` file:
-
-    git config user.email <address>
-
-### Using `.gitignore` files
-
-Set global `.gitignore` (in `$HOME`) to exclude `.DS_Store` files
-
-Create local `.gitignore`, especially for npm-based projects,
-to exclude `node_modules/` and `.jshintrc`
-
-### Storing credentials for remote repositories
-
-    git config --global credential.helper osxkeychain
-
-You can also use this type of setting in `~/.gitconfig`:
-
-    [credential "http://git.repo-host.com"]
-        username = <username>
-
-### When you have multiple remotes, set `remote.pushDefault`
-
-    git config remote.pushDefault <remote>
-
-You must issue the `git config remote.pushDefault <remote>`
-command from within the repository to which it applies. For
-example, when issued from within submodule `build`, it will
-update `../.git/modules/build/config`.
-
-----------------------------------------------------------------
-## Using `git pull --rebase`
-
-If you rewrite history, e.g., update `user.email` for commits,
-when you pull in the updates, use `git pull --rebase`.
-
-Stack Overflow: "You should use `git pull --rebase` when your
-changes do not deserve a separate branch."
 
 ----------------------------------------------------------------
 ## What certain commands actually do
