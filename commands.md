@@ -57,7 +57,9 @@ Note: Current version of `<filename>` will be overwritten!
 
 ### Interactively change the last `<n>` commit messages
 
-This command will invoke your editor, where you can mark commits
+Note: This command will invoke your editor, which will provide a list
+of the commits you've specified, and where you can mark each according
+to the action you want Git to perform:
 
     git rebase -i HEAD~<n>
 
