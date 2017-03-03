@@ -51,6 +51,16 @@ Note: Current version of `<filename>` will be overwritten!
 
     git checkout <commit-hash> <filename>
 
+### Change the last commit message
+
+    git commit --amend -m "New commit message"
+
+### Interactively change the last `<n>` commit messages
+
+This command will invoke your editor, where you can mark commits
+
+    git rebase -i HEAD~<n>
+
 ### Undo the last commit
 
 To leave files as they are, but revert the index:
@@ -90,11 +100,15 @@ new branch.
 
     git checkout -b <branch-name>
 
-### Delete a branch
+### Push local branch to `origin`
+
+    git push -u origin <branch-name>
+
+### Delete a branch locally
 
     git branch -d <branch-name>
 
-### Delete branch on origin remote
+### Delete branch on `origin`
 
     git push origin --delete <branch-name>
 
@@ -201,6 +215,31 @@ changes do not deserve a separate branch."
 ### Push all tags to remote
 
     git push origin --tags
+
+----------------------------------------------------------------
+## Syncing a fork
+
+First, create a remote the references the original repo from which
+your fork was created:
+
+    git remote add upstream <original-repo-url>
+
+Fetch the branches and their respective commits from the `upstream`
+repo:
+
+    git fetch upstream
+
+Checkout your fork's local `master` branch:
+
+    git checkout master
+
+Merge the changes from `upstream/master`:
+
+    git merge upstream/master
+
+If necessary, push the changes to the fork's `origin`:
+
+    git push origin master
 
 ----------------------------------------------------------------
 ## What certain commands actually do
