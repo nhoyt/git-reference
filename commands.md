@@ -183,6 +183,13 @@ origin remote, use:
 
     git diff <commit-hash> <filename>
 
+### See diffs between two branches
+
+    git diff <branch-1>..<branch-2>
+
+Use `--name-only` switch to only list file names
+Use `--dirstat` switch to only list directories
+
 ### Using `git pull --rebase`
 
 If you rewrite history, e.g., update `user.email` for commits,
