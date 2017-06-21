@@ -45,6 +45,12 @@ Note: Current version of `<filename>` will be overwritten!
 
     git checkout -- <filename>
 
+### Revert all working copy files to versions currently in the index
+
+Note: All uncommitted working copy modifications will be lost!
+
+    git reset --hard HEAD
+
 ### Replace a working copy file with version from previous commit
 
 Note: Current version of `<filename>` will be overwritten!
