@@ -30,7 +30,7 @@ Note: The default for `[remote-name]` is `origin`
     git push <remote-name> master
 
 ----------------------------------------------------------------
-## Undo/Reset
+## Reset/Revert
 
 ### Unstage file that has been staged for commit
 
@@ -45,7 +45,7 @@ Note: Current version of `<filename>` will be overwritten!
 
     git checkout -- <filename>
 
-### Revert all working copy files to versions currently in the index
+### Reset all working copy files to versions currently in the index
 
 Note: All uncommitted working copy modifications will be lost!
 
@@ -68,6 +68,12 @@ of the commits you've specified, and where you can mark each according
 to the action you want Git to perform:
 
     git rebase -i HEAD~<n>
+
+### Revert branch (roll back) to previous commit
+
+    git revert --no-commit <commit-hash>..HEAD
+
+    git commit
 
 ### Undo the last commit
 
