@@ -71,6 +71,10 @@ to the action you want Git to perform:
 
 ### Revert branch (roll back) to previous commit
 
+Note: Using the `--no-commit` option will result in only having to make
+a single commit. The `--no-edit` option will result in multiple commits
+but will not require adding a commit message for each.
+
     git revert --no-commit <commit-hash>..HEAD
 
     git commit
