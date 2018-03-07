@@ -118,6 +118,21 @@ new branch.
 
     git checkout -b <branch-name>
 
+### List local branches
+
+    git branch  =>  git branch --list
+
+You can use the -v switch to get information on the commit that HEAD
+points to for each branch
+
+### List remote branches
+
+    git branch -r
+
+### List all branches, both local and remote
+
+    git branch -a
+
 ### Push local branch to `origin`
 
     git push -u origin <branch-name>
@@ -146,17 +161,6 @@ Then use this command to clear the working directory:
 
 NOTE: Issue first commit before switching to another branch or
 your changes will (apparently) be lost.
-
-### List local branches
-
-    git branch  =>  git branch --list
-
-You can use the -v switch to get information on the commit that HEAD
-points to for each branch
-
-### List all branches, both local and remote
-
-    git branch -a
 
 ----------------------------------------------------------------
 ## Merging
@@ -248,7 +252,7 @@ changes do not deserve a separate branch."
 ----------------------------------------------------------------
 ## Syncing a fork
 
-First, create a remote the references the original repo from which
+First, create a remote that references the original repo from which
 your fork was created:
 
     git remote add upstream <original-repo-url>
