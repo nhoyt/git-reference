@@ -151,6 +151,10 @@ Note: The default for `[remote-name]` is `origin`
 
     git fetch [remote-name] --prune
 
+### Prune branches on `origin` that no longer exist
+
+    git remote prune origin
+
 ### Create a new orphan branch and checkout
 
     git checkout --orphan <new-branch-name>
