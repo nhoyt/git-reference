@@ -207,6 +207,10 @@ origin remote, use:
 
     git diff <commit-hash> <filename>
 
+### See diffs between last and previous commits
+
+    git diff HEAD^
+
 ### See diffs between two branches
 
     git diff <branch-1>..<branch-2>
@@ -252,6 +256,12 @@ changes do not deserve a separate branch."
 ### Push all tags to remote
 
     git push origin --tags
+
+### Delete a tag locally and remote
+
+    git push --delete origin <tag-name>
+
+    git tag --delete <tag-name>
 
 ----------------------------------------------------------------
 ## Syncing a fork
