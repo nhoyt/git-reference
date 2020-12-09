@@ -15,9 +15,9 @@
 
 ### Fetch remote refs into the index
 
-Note: The default for `[remote-name]` is `origin`
+Note: The default for `<remote-name>` is `origin`
 
-    git fetch [remote-name]
+    git fetch <remote-name>
 
 ### Fetch refs for all remotes
 
@@ -153,9 +153,9 @@ points to for each branch
 
 ### Delete local branches that are no longer on the remote
 
-Note: The default for `[remote-name]` is `origin`
+Note: The default for `<remote-name>` is `origin`
 
-    git fetch [remote-name] --prune
+    git fetch <remote-name> --prune
 
 ### Prune branches on `origin` that no longer exist
 
