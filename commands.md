@@ -7,6 +7,12 @@
 
     git remote -v
 
+### Add remote (ssh or http)
+
+    git remote add origin <url>
+
+    git branch --set-upstream-to=origin/master master
+
 ### Fetch remote refs into the index
 
 Note: The default for `[remote-name]` is `origin`
